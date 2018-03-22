@@ -8,7 +8,8 @@
 // Class: CSCI 133F | TR 9:30AM
 // This is the header file for the ccomp.cpp file.
 // ==================================================================
-#include <iostream>
+#ifndef CCOMP_H
+#define CCOMP_H
 
 template <typename  CompType>
 class   CComp
@@ -19,8 +20,7 @@ public:
     bool    operator<(const CComp  &rhs) const;
     bool    operator>(const CComp  &rhs) const;
     bool    operator!=(const CComp  &rhs) const;
-    istream& operator>> (istream &is, CComp &item);
-    
+
     // accessor functions
     const CompType& GetData(void) const { return  m_data; }
     void            SetData(const CompType  &newData) { m_data = newData; }
@@ -28,3 +28,9 @@ public:
 private:
     CompType    m_data;
 };
+
+istream& operator >>(istream& ins, CComp<CompType> &rhs);
+ostream& operator <<(ostream& outs, const CComp<CompType> &rhs);
+
+#include "ccomp.cpp"
+#endif
