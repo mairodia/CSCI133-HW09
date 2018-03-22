@@ -19,7 +19,8 @@ public:
     bool    operator<(const CComp  &rhs) const;
     bool    operator>(const CComp  &rhs) const;
     bool    operator!=(const CComp  &rhs) const;
-
+    istream& operator>> (istream &is, CComp &item);
+    
     // accessor functions
     const CompType& GetData(void) const { return  m_data; }
     void            SetData(const CompType  &newData) { m_data = newData; }
