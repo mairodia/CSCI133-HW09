@@ -53,8 +53,17 @@ bool CComp<CompType>::operator!=(const CComp<CompType>& rhs) const
 }
 
 template <typename CompType>
-istream& CComp<CompType>::operator>>(istream& is, CComp<CompType>& item)
+istream& operator>>(istream& ins, CComp<CompType> &rhs)
 {
-    is >> item.m_data;
-    return is;
+    CompType inData;
+    ins >> inData;
+    rhs.SetData(inData);
+    return ins;
+}
+
+template <typename CompType>
+ostream& operator<<(ostream &outs, const CComp<CompType> &rhs)
+{
+    outs << rhs.GetData();
+    return outs;
 }
