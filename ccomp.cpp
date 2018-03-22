@@ -13,7 +13,7 @@
 using namespace std;
 
 template <typename CompType>
-bool CComp<CompType>::operator==(const CComp & rhs) const
+bool CComp<CompType>::operator==(const CComp<CompType>& rhs) const
 {
     if(m_data == rhs.m_data)
     {
@@ -22,8 +22,8 @@ bool CComp<CompType>::operator==(const CComp & rhs) const
     return false;
 }
 
-template <typename CompTyoe>
-bool CComp<CompType>::operator<(const CComp &rhs) const
+template <typename CompType>
+bool CComp<CompType>::operator<(const CComp<CompType>& rhs) const
 {
     if(m_data < rhs.m_data)
     {
@@ -32,8 +32,8 @@ bool CComp<CompType>::operator<(const CComp &rhs) const
     return false;
 }
 
-template <typename CompTyoe>
-bool CComp<CompType>::operator>(const CComp &rhs) const
+template <typename CompType>
+bool CComp<CompType>::operator>(const CComp<CompType>& rhs) const
 {
     if(m_data > rhs.m_data)
     {
@@ -42,12 +42,19 @@ bool CComp<CompType>::operator>(const CComp &rhs) const
     return false;
 }
 
-template <typename CompTyoe>
-bool CComp<CompType>::operator!=(const CComp &rhs) const
+template <typename CompType>
+bool CComp<CompType>::operator!=(const CComp<CompType>& rhs) const
 {
     if(m_data != rhs.m_data)
     {
         return true;
     }
     return false;
+}
+
+template <typename CompType>
+istream& CComp<CompType>::operator>>(istream& is, CComp<CompType>& item)
+{
+    is >> item.m_data;
+    return is;
 }
