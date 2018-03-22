@@ -13,7 +13,6 @@
 
 #include    <iostream>
 #include    "ccomp.h"
-#include    "ccomp.cpp"
 using namespace std;
 
 // function prototypes
@@ -32,8 +31,8 @@ int     main()
     int                 result;
 
     // test the function template with simple chars
-    char            charOne;
-    char            charTwo;
+    CComp<char>     charOne;
+    CComp<char>     charTwo;
     cout << "Enter the first character value: ";
     cin >> charOne;
     cout << "Enter the second character value: ";
@@ -42,8 +41,8 @@ int     main()
     ShowResult(result, charOne, charTwo);
 
     // test the function template with simple doubles
-    double          doubleOne;
-    double          doubleTwo;
+    CComp<double>   doubleOne;
+    CComp<double>       doubleTwo;
     cout << "Enter the first double value: ";
     cin >> doubleOne;
     cout << "Enter the second double value: ";
